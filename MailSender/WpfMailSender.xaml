@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
-        Title="WpfMailSender" Height="450" Width="800">
-    <Grid>
-        
+        Title="WpfMailSender" Height="400" Width="600">
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="103*"/>
+            <RowDefinition Height="318*"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="Отправить письмо" HorizontalAlignment="Left" Height="233" Margin="92,17,0,0" Grid.Row="1" VerticalAlignment="Top" Width="436" FontSize="14"/>
+        <GroupBox Header="Данные отправителя" HorizontalAlignment="Left" Height="81" Margin="92,1,0,0" VerticalAlignment="Top" Width="436" FontSize="14"/>
+        <Button x:Name="btnSendEmail" Content="Отправить" HorizontalAlignment="Left" Margin="421,202,0,0" Width="80" Click="btnSendEmail_Click" Grid.Row="1" Height="26" FontSize="14" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="316,48,0,0" VerticalAlignment="Top" Width="185" Height="23" FontSize="14"/>
+        <TextBox x:Name="bodyBox" HorizontalAlignment="Left" Height="63" Margin="177,134,0,0" TextWrapping="Wrap" Text="C# Тело письма" VerticalAlignment="Top" Width="324" Grid.Row="1" FontSize="14"/>
+        <TextBlock x:Name="tbTo" HorizontalAlignment="Left" Margin="128,52,0,0" TextWrapping="Wrap" Text="Кому" VerticalAlignment="Top" Grid.Row="1" Height="17" Width="44" FontSize="14"/>
+        <TextBox x:Name="userNameBox" HorizontalAlignment="Left" Height="23" Margin="114,48,0,0" TextWrapping="Wrap" Text="yuriy.khalturin@yandex.ru" VerticalAlignment="Top" Width="197" FontSize="14" VerticalContentAlignment="Center"/>
+        <TextBlock x:Name="tbSubject" HorizontalAlignment="Left" Margin="128,91,0,0" TextWrapping="Wrap" Text="Тема" VerticalAlignment="Top" Grid.Row="1" Height="16" Width="33" FontSize="14"/>
+        <TextBox x:Name="toBox" HorizontalAlignment="Left" Height="26" Margin="177,53,0,0" TextWrapping="Wrap" Text="chalturin@gmail.com" VerticalAlignment="Top" Width="324" Grid.Row="1" FontSize="14" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="subjectBox" HorizontalAlignment="Left" Height="23" Margin="177,94,0,0" TextWrapping="Wrap" Text="C# Тема письма" VerticalAlignment="Top" Width="324" Grid.Row="1" FontSize="14" VerticalContentAlignment="Center"/>
+        <TextBlock x:Name="tbBody" HorizontalAlignment="Left" Margin="101,131,0,0" TextWrapping="Wrap" Text="Описание" VerticalAlignment="Top" Grid.Row="1" Height="16" Width="71" FontSize="14"/>
+        <TextBlock x:Name="tbLogin" HorizontalAlignment="Left" Margin="114,29,0,0" TextWrapping="Wrap" Text="Логин" VerticalAlignment="Top" Height="16" Width="46" FontSize="14"/>
+        <TextBlock x:Name="tbPassword" HorizontalAlignment="Left" Margin="316,27,0,0" TextWrapping="Wrap" Text="Пароль" VerticalAlignment="Top" Height="16" Width="50" FontSize="14"/>
     </Grid>
 </Window>
