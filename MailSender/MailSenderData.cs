@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WpfTestMailSender
+namespace WpfMailSender
 {
     public static class MailSenderData
     {

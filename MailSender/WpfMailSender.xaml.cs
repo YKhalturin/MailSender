@@ -3,7 +3,7 @@ using System.Windows;
 using System.Net;
 using System.Net.Mail;
 
-namespace WpfTestMailSender
+namespace WpfMailSender
 {
     /// <summary>
     /// Interaction logic for WpfMailSender.xaml
