@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
-        Title="WpfMailSender" Height="400" Width="600">
+        Title="Рассылка писем" Height="400" Width="600">
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="103*"/>
@@ -17,9 +17,9 @@
         <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="316,48,0,0" VerticalAlignment="Top" Width="185" Height="23" FontSize="14"/>
         <TextBox x:Name="bodyBox" HorizontalAlignment="Left" Height="63" Margin="177,134,0,0" TextWrapping="Wrap" Text="C# Тело письма" VerticalAlignment="Top" Width="324" Grid.Row="1" FontSize="14"/>
         <TextBlock x:Name="tbTo" HorizontalAlignment="Left" Margin="128,52,0,0" TextWrapping="Wrap" Text="Кому" VerticalAlignment="Top" Grid.Row="1" Height="17" Width="44" FontSize="14"/>
-        <TextBox x:Name="userNameBox" HorizontalAlignment="Left" Height="23" Margin="114,48,0,0" TextWrapping="Wrap" Text="yuriy.khalturin@yandex.ru" VerticalAlignment="Top" Width="197" FontSize="14" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="userNameBox" HorizontalAlignment="Left" Height="23" Margin="114,48,0,0" TextWrapping="Wrap" Text="test@yandex.ru" VerticalAlignment="Top" Width="197" FontSize="14" VerticalContentAlignment="Center"/>
         <TextBlock x:Name="tbSubject" HorizontalAlignment="Left" Margin="128,91,0,0" TextWrapping="Wrap" Text="Тема" VerticalAlignment="Top" Grid.Row="1" Height="16" Width="33" FontSize="14"/>
-        <TextBox x:Name="toBox" HorizontalAlignment="Left" Height="26" Margin="177,53,0,0" TextWrapping="Wrap" Text="chalturin@gmail.com" VerticalAlignment="Top" Width="324" Grid.Row="1" FontSize="14" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="toBox" HorizontalAlignment="Left" Height="26" Margin="177,53,0,0" TextWrapping="Wrap" Text="test@gmail.com" VerticalAlignment="Top" Width="324" Grid.Row="1" FontSize="14" VerticalContentAlignment="Center"/>
         <TextBox x:Name="subjectBox" HorizontalAlignment="Left" Height="23" Margin="177,94,0,0" TextWrapping="Wrap" Text="C# Тема письма" VerticalAlignment="Top" Width="324" Grid.Row="1" FontSize="14" VerticalContentAlignment="Center"/>
         <TextBlock x:Name="tbBody" HorizontalAlignment="Left" Margin="101,131,0,0" TextWrapping="Wrap" Text="Описание" VerticalAlignment="Top" Grid.Row="1" Height="16" Width="71" FontSize="14"/>
         <TextBlock x:Name="tbLogin" HorizontalAlignment="Left" Margin="114,29,0,0" TextWrapping="Wrap" Text="Логин" VerticalAlignment="Top" Height="16" Width="46" FontSize="14"/>
