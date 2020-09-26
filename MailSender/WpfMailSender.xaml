@@ -31,6 +31,52 @@
                 <TextBlock Text="Готов!"/>
             </StatusBarItem>
         </StatusBar>
-        <TabControl></TabControl>
+        <TabControl>
+            <TabItem Header="Списки">
+                <DockPanel>
+                    <ToolBarTray DockPanel.Dock="Top">
+                        <ToolBar Header="Серверы" Band="0">
+                            <ComboBox Margin="25,0,0,0" MinWidth="120" MaxWidth="200" SelectedIndex="0">
+                                <ComboBoxItem>smtp.yandex.ru</ComboBoxItem>
+                                <ComboBoxItem>smtp.google.com</ComboBoxItem>
+                            </ComboBox>
+                            <Button Content="Add"/>
+                            <Button Content="Edit"/>
+                            <Button Content="Del"/>
+                        </ToolBar>
+                        <ToolBar Header="Отправители" Band="1">
+                            <ComboBox MinWidth="120" MaxWidth="200" SelectedIndex="0">
+                                <ComboBoxItem>Иванов</ComboBoxItem>
+                                <ComboBoxItem>Петров</ComboBoxItem>
+                            </ComboBox>
+                            <Button Content="Add"/>
+                            <Button Content="Edit"/>
+                            <Button Content="Del"/>
+                        </ToolBar>
+
+                        <ToolBar Header="Перейти в планировщик" Band="0">
+                            <Button>Перейти</Button>
+                        </ToolBar>
+                        <ToolBar Header="Получатели" Band="1">
+                            <Button Content="Add"/>
+                            <Button Content="Edit"/>
+                            <Button Content="Del"/>
+                        </ToolBar>
+                    </ToolBarTray>
+                    <GroupBox Header="Список получателей">
+                        <DataGrid>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID" MinWidth="30"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Имя" Width="*"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Адрес" MinWidth="160"></DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Планировщик"></TabItem>
+            <TabItem Header="Письма"></TabItem>
+            <TabItem Header="Статистика"></TabItem>
+        </TabControl>
     </DockPanel>
 </Window>
