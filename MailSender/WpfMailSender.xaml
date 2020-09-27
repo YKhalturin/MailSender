@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.com/icons/"
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
         Title="Рассылка писем" Height="400" Width="600">
@@ -40,27 +41,47 @@
                                 <ComboBoxItem>smtp.yandex.ru</ComboBoxItem>
                                 <ComboBoxItem>smtp.google.com</ComboBoxItem>
                             </ComboBox>
-                            <Button Content="Add"/>
-                            <Button Content="Edit"/>
-                            <Button Content="Del"/>
+                            <Button ToolTip="Добавить">
+                                <fa:ImageAwesome Icon="Solid_PlusCircle" Height="14" Foreground="BlueViolet"></fa:ImageAwesome>
+                            </Button>
+                            <Button ToolTip="Редактировать">
+                                <fa:ImageAwesome Icon="Solid_PencilAlt"  Height="14" Foreground="BlueViolet"></fa:ImageAwesome>
+                            </Button>
+                            <Button ToolTip="Удалить">
+                                <fa:ImageAwesome Icon="Solid_TrashAlt"  Height="14" Foreground="BlueViolet"></fa:ImageAwesome>
+                            </Button>
                         </ToolBar>
                         <ToolBar Header="Отправители" Band="1">
                             <ComboBox MinWidth="120" MaxWidth="200" SelectedIndex="0">
                                 <ComboBoxItem>Иванов</ComboBoxItem>
                                 <ComboBoxItem>Петров</ComboBoxItem>
                             </ComboBox>
-                            <Button Content="Add"/>
-                            <Button Content="Edit"/>
-                            <Button Content="Del"/>
+                            <Button ToolTip="Добавить">
+                                <fa:ImageAwesome Icon="Solid_PlusCircle" Height="14" Foreground="BlueViolet"></fa:ImageAwesome>
+                            </Button>
+                            <Button ToolTip="Редактировать">
+                                <fa:ImageAwesome Icon="Solid_PencilAlt"  Height="14" Foreground="BlueViolet"></fa:ImageAwesome>
+                            </Button>
+                            <Button ToolTip="Удалить">
+                                <fa:ImageAwesome Icon="Solid_TrashAlt"  Height="14" Foreground="BlueViolet"></fa:ImageAwesome>
+                            </Button>
                         </ToolBar>
 
                         <ToolBar Header="Перейти в планировщик" Band="0">
-                            <Button>Перейти</Button>
+                            <Button ToolTip="Добавить">
+                                <fa:ImageAwesome Icon="Solid_UserClock" Height="14" Foreground="BlueViolet"></fa:ImageAwesome>
+                            </Button>
                         </ToolBar>
                         <ToolBar Header="Получатели" Band="1">
-                            <Button Content="Add"/>
-                            <Button Content="Edit"/>
-                            <Button Content="Del"/>
+                            <Button ToolTip="Добавить">
+                                <fa:ImageAwesome Icon="Solid_PlusCircle" Height="14" Foreground="BlueViolet"></fa:ImageAwesome>
+                            </Button>
+                            <Button ToolTip="Редактировать">
+                                <fa:ImageAwesome Icon="Solid_PencilAlt"  Height="14" Foreground="BlueViolet"></fa:ImageAwesome>
+                            </Button>
+                            <Button ToolTip="Удалить">
+                                <fa:ImageAwesome Icon="Solid_TrashAlt"  Height="14" Foreground="BlueViolet"></fa:ImageAwesome>
+                            </Button>
                         </ToolBar>
                     </ToolBarTray>
                     <GroupBox Header="Список получателей">
