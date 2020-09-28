@@ -69,6 +69,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Data\TestData.cs" />
     <Compile Include="EmailSendService.cs" />
     <Compile Include="MailSenderData.cs" />
     <Compile Include="Models\Message.cs" />

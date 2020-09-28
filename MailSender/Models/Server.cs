@@ -6,7 +6,7 @@ namespace WpfTestMailSender.Models
     {
         public string Address { get; set; }
 
-        private int _port;
+        private int _port = 25;
         public int Port
         {
             get => _port;

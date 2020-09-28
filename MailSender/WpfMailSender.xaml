@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="http://schemas.fontawesome.com/icons/"
+        xmlns:data="clr-namespace:WpfTestMailSender.Data"
+        xmlns:model="clr-namespace:WpfTestMailSender.Models"
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
         Title="Рассылка писем" Height="400" Width="600">
@@ -37,9 +39,10 @@
                 <DockPanel>
                     <ToolBarTray DockPanel.Dock="Top">
                         <ToolBar Header="Серверы" Band="0">
-                            <ComboBox Margin="25,0,0,0" MinWidth="120" MaxWidth="200" SelectedIndex="0">
-                                <ComboBoxItem>smtp.yandex.ru</ComboBoxItem>
-                                <ComboBoxItem>smtp.google.com</ComboBoxItem>
+                            <ComboBox Name="ServersList" Margin="25,0,0,0" MinWidth="120" MaxWidth="200" SelectedIndex="0"
+                                      ItemsSource="{x:Static data:TestData.Servers}" DisplayMemberPath="Address"
+                                      SelectedValuePath="Address">
+
                             </ComboBox>
                             <Button ToolTip="Добавить">
                                 <fa:ImageAwesome Icon="Solid_PlusCircle" Height="14" Foreground="BlueViolet"></fa:ImageAwesome>
@@ -52,9 +55,18 @@
                             </Button>
                         </ToolBar>
                         <ToolBar Header="Отправители" Band="1">
-                            <ComboBox MinWidth="120" MaxWidth="200" SelectedIndex="0">
-                                <ComboBoxItem>Иванов</ComboBoxItem>
-                                <ComboBoxItem>Петров</ComboBoxItem>
+                            <ComboBox MinWidth="120" MaxWidth="200" SelectedIndex="0"
+                                      ItemsSource="{x:Static data:TestData.Senders}" >
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate DataType="model:Sender">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Name}" ToolTip="{Binding Address}"></TextBlock>
+                                            <!--<TextBlock Text=" : "></TextBlock>
+                                            <TextBlock Text="{Binding Address}" Opacity="0.5"></TextBlock>-->
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                                
                             </ComboBox>
                             <Button ToolTip="Добавить">
                                 <fa:ImageAwesome Icon="Solid_PlusCircle" Height="14" Foreground="BlueViolet"></fa:ImageAwesome>
@@ -85,11 +97,13 @@
                         </ToolBar>
                     </ToolBarTray>
                     <GroupBox Header="Список получателей">
-                        <DataGrid>
+                        <DataGrid ItemsSource="{x:Static data:TestData.Recipients}" AutoGenerateColumns="False"
+                                  GridLinesVisibility="Vertical" AlternatingRowBackground="AliceBlue"
+                                  VerticalGridLinesBrush="LightGray">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="ID" MinWidth="30"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Имя" Width="*"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Адрес" MinWidth="160"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding Name}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Адрес" MinWidth="160" Binding="{Binding Address}"></DataGridTextColumn>
                             </DataGrid.Columns>
                         </DataGrid>
                     </GroupBox>
@@ -160,19 +174,18 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <GroupBox Grid.Column="0" Header="Список писем">
-                        <ListBox>
-                            <ListBoxItem>Письмо 1</ListBoxItem>
-                            <ListBoxItem>Письмо 2</ListBoxItem>
-                            <ListBoxItem>Письмо 3</ListBoxItem>
+                        <ListBox Name="MessagesList"  ItemsSource="{x:Static data:TestData.Messages}"
+                                 DisplayMemberPath="Subject">
+
                         </ListBox>
                     </GroupBox>
                     <GroupBox Grid.Column="1" Header="Редактор">
                         <DockPanel>
                             <GroupBox Header="Заголовок" DockPanel.Dock="Top">
-                                <TextBox/>
+                                <TextBox Text="{Binding SelectedItem.Subject, ElementName=MessagesList, UpdateSourceTrigger=PropertyChanged}"/>
                             </GroupBox>
                             <GroupBox Header="Тело письма">
-                                <TextBox AcceptsReturn="True"/>
+                                <TextBox Text="{Binding SelectedItem.Body, ElementName=MessagesList}"  AcceptsReturn="True"/>
                             </GroupBox>
                         </DockPanel>
                     </GroupBox>
