@@ -8,7 +8,15 @@
         xmlns:model="clr-namespace:WpfTestMailSender.Models"
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
-        Title="Рассылка писем" Height="400" Width="600">
+        Title="Рассылка писем" Height="600" Width="850"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
@@ -39,10 +47,9 @@
                 <DockPanel>
                     <ToolBarTray DockPanel.Dock="Top">
                         <ToolBar Header="Серверы" Band="0">
-                            <ComboBox Name="ServersList" Margin="25,0,0,0" MinWidth="120" MaxWidth="200" SelectedIndex="0"
+                            <ComboBox Name="ServersList" Margin="32,0,0,0" MinWidth="120" MaxWidth="200" SelectedIndex="0"
                                       ItemsSource="{x:Static data:TestData.Servers}" DisplayMemberPath="Address"
                                       SelectedValuePath="Address">
-
                             </ComboBox>
                             <Button ToolTip="Добавить">
                                 <fa:ImageAwesome Icon="Solid_PlusCircle" Height="14" Foreground="BlueViolet"></fa:ImageAwesome>
@@ -55,7 +62,7 @@
                             </Button>
                         </ToolBar>
                         <ToolBar Header="Отправители" Band="1">
-                            <ComboBox MinWidth="120" MaxWidth="200" SelectedIndex="0"
+                            <ComboBox Name="SendersList" MinWidth="120" MaxWidth="200" SelectedIndex="0"
                                       ItemsSource="{x:Static data:TestData.Senders}" >
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate DataType="model:Sender">
@@ -80,7 +87,7 @@
                         </ToolBar>
 
                         <ToolBar Header="Перейти в планировщик" Band="0">
-                            <Button ToolTip="Добавить">
+                            <Button ToolTip="Перейти в планировщик">
                                 <fa:ImageAwesome Icon="Solid_UserClock" Height="14" Foreground="BlueViolet"></fa:ImageAwesome>
                             </Button>
                         </ToolBar>
@@ -97,7 +104,7 @@
                         </ToolBar>
                     </ToolBarTray>
                     <GroupBox Header="Список получателей">
-                        <DataGrid ItemsSource="{x:Static data:TestData.Recipients}" AutoGenerateColumns="False"
+                        <DataGrid Name="RecipientsList" ItemsSource="{x:Static data:TestData.Recipients}" AutoGenerateColumns="False"
                                   GridLinesVisibility="Vertical" AlternatingRowBackground="AliceBlue"
                                   VerticalGridLinesBrush="LightGray">
                             <DataGrid.Columns>
@@ -112,14 +119,14 @@
             <TabItem Header="Планировщик">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="168"/>
+                        <ColumnDefinition Width="200"/>
                         <ColumnDefinition Width="23"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <GroupBox Header="Управление" Grid.Column="0" Grid.ColumnSpan="2">
                         <StackPanel>
                             <TextBlock Text="Календарь" TextAlignment="Center"/>
-                            <Calendar/>
+                            <Calendar Height="338"/>
                             <StackPanel Margin="5,7">
                                 <StackPanel.Resources>
                                     <Style TargetType="Button">
@@ -127,7 +134,7 @@
                                         <Setter Property="Background" Value="AliceBlue"></Setter>
                                     </Style>
                                 </StackPanel.Resources>
-                                <Button Content="Отправить"/>
+                                <Button Name="SendButton" Content="Отправить" Click="SendButton_Click"/>
                                 <Button Content="Запланировать"/>
                             </StackPanel>
 
