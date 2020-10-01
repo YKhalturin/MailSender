@@ -2,6 +2,8 @@
 using System.Windows;
 using System.Net;
 using System.Net.Mail;
+using MailSender.lib;
+using WpfTestMailSender.Models;
 
 namespace WpfMailSender
 {
@@ -15,22 +17,36 @@ namespace WpfMailSender
             InitializeComponent();
         }
 
-        private void btnSendEmail_Click(object sender, RoutedEventArgs e)
+        private void SendButton_Click(object Sender, RoutedEventArgs e)
         {
-            var credentials = new NetworkCredential
+            if (!(ServersList.SelectedItem is Server server)) return;
+            if (!(SendersList.SelectedItem is Sender sender)) return;
+            if (!(RecipientsList.SelectedItem is Recipient recipient)) return;
+            if (!(MessagesList.SelectedItem is Message message)) return;
+
+            var sendService = new MailSenderService
             {
-                UserName = userNameBox.Text,
-                Password = passwordBox.Password
+                ServerAddress = server.Address,
+                ServerPort = server.Port,
+                UseSSL = server.UseSSL,
+                Login = server.Login,
+                Password = server.Password,
             };
-            var emailData = new EmailSendService.Email
+            try
             {
-                From = userNameBox.Text,
-                To = toBox.Text,
-                Subject = subjectBox.Text,
-                Body = bodyBox.Text
-            };
-            var email = new EmailSendService(credentials, emailData);
-            email.SendMessage();
+                var emailData = new MailSenderService.Email
+                {
+                    SenderAddress = sender.Address,
+                    RecipientAddress = recipient.Address,
+                    Subject = message.Subject,
+                    Body = message.Body
+                };
+                sendService.SendMessage(emailData);
+            }
+            catch (SmtpException ex)
+            {
+                MessageBox.Show($"Ошибка при отправке почты {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
