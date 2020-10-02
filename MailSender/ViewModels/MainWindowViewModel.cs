@@ -17,7 +17,7 @@ namespace WpfTestMailSender.ViewModels
         public StatisticViewModel Statistic { get; } = new StatisticViewModel();
 
 
-        private string _Title = "Тестовое окно";
+        private string _Title = "Отправка почты";
 
         public string Title
         {
