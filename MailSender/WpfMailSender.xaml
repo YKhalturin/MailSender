@@ -6,6 +6,7 @@
         xmlns:fa="http://schemas.fontawesome.com/icons/"
         xmlns:data="clr-namespace:WpfTestMailSender.Data"
         xmlns:model="clr-namespace:WpfTestMailSender.Models"
+        xmlns:v="clr-namespace:WpfTestMailSender.Views"
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
         DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
@@ -112,7 +113,10 @@
                             </Button>
                         </ToolBar>
                     </ToolBarTray>
-                    <GroupBox Header="Список получателей">
+                    <Grid>
+                        <v:RecipientsView/>
+                    </Grid>
+                    <!--<GroupBox Header="Список получателей">
                         <DataGrid Name="RecipientsList" ItemsSource="{Binding Recipients}"
                                   SelectedItem="{Binding SelectedRecipient}" AutoGenerateColumns="False"
                                   GridLinesVisibility="Vertical" AlternatingRowBackground="AliceBlue"
@@ -123,7 +127,7 @@
                                 <DataGridTextColumn Header="Адрес" MinWidth="160" Binding="{Binding Address}"></DataGridTextColumn>
                             </DataGrid.Columns>
                         </DataGrid>
-                    </GroupBox>
+                    </GroupBox>-->
                 </DockPanel>
             </TabItem>
             <TabItem Header="Планировщик">
