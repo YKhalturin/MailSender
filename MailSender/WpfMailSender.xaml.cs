@@ -1,9 +1,4 @@
-﻿using System;
-using System.Windows;
-using System.Net;
-using System.Net.Mail;
-using MailSender.lib;
-using WpfTestMailSender.Models;
+﻿using System.Windows;
 
 namespace WpfMailSender
 {

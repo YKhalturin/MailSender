@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Windows.Documents;
-using WpfTestMailSender.Models;
 using System.Linq;
+using MailSender.lib.Models;
 using MailSender.lib.Service;
 
 namespace WpfTestMailSender.Data

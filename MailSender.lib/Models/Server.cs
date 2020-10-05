@@ -1,8 +1,9 @@
 ﻿using System;
+using MailSender.lib.Models.Base;
 
-namespace WpfTestMailSender.Models
+namespace MailSender.lib.Models
 {
-    public class Server
+    public class Server : NamedEntity
     {
         public string Address { get; set; }
 
@@ -12,7 +13,7 @@ namespace WpfTestMailSender.Models
             get => _port;
             set
             {
-                if(value < 0 || value>= 65535)
+                if (value < 0 || value >= 65535)
                     throw new ArgumentOutOfRangeException(nameof(value), value, "Номер порта должен быть в диапазоне от 0 до 65534");
             }
         }
