@@ -3,9 +3,9 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using MailSender.lib.Interfaces;
+using MailSender.lib.Models;
 using WpfTestMailSender.Data;
 using WpfTestMailSender.Infrastructure.Commands;
-using WpfTestMailSender.Models;
 using WpfTestMailSender.ViewModels.Base;
 
 namespace WpfTestMailSender.ViewModels
