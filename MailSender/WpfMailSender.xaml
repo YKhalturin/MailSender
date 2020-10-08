@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="http://schemas.fontawesome.com/icons/"
         xmlns:data="clr-namespace:WpfTestMailSender.Data"
-        xmlns:model="clr-namespace:WpfTestMailSender.Models"
+        xmlns:v="clr-namespace:WpfTestMailSender.Views"
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
         DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
         Title="{Binding Title}" 
-        Height="600" Width="800"
+        Height="600" Width="850"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:models="clr-namespace:MailSender.lib.Models;assembly=MailSender.lib"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -74,7 +75,7 @@
                                       SelectedItem="{Binding SelectedSender}"
                                       ItemsSource="{Binding Senders}">
                                 <ComboBox.ItemTemplate>
-                                    <DataTemplate DataType="model:Sender">
+                                    <DataTemplate DataType="models:Sender">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="{Binding Name}" ToolTip="{Binding Address}"></TextBlock>
                                             <!--<TextBlock Text=" : "></TextBlock>
@@ -112,7 +113,15 @@
                             </Button>
                         </ToolBar>
                     </ToolBarTray>
-                    <GroupBox Header="Список получателей">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <v:RecipientsView/>
+                        <v:RecipientEditor Grid.Column="1"/>
+                    </Grid>
+                    <!--<GroupBox Header="Список получателей">
                         <DataGrid Name="RecipientsList" ItemsSource="{Binding Recipients}"
                                   SelectedItem="{Binding SelectedRecipient}" AutoGenerateColumns="False"
                                   GridLinesVisibility="Vertical" AlternatingRowBackground="AliceBlue"
@@ -123,7 +132,7 @@
                                 <DataGridTextColumn Header="Адрес" MinWidth="160" Binding="{Binding Address}"></DataGridTextColumn>
                             </DataGrid.Columns>
                         </DataGrid>
-                    </GroupBox>
+                    </GroupBox>-->
                 </DockPanel>
             </TabItem>
             <TabItem Header="Планировщик">
