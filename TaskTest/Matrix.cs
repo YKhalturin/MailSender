@@ -32,7 +32,7 @@ namespace TaskTest
             if (a.GetLength(1) != b.GetLength(0)) throw new Exception("Матрицы нельзя перемножить");
             int[,] r = new int[a.GetLength(0), b.GetLength(1)];
 
-            Task task = Task.Run(() =>
+            Task task = Task.Run(async () =>
             {
                 for (int i = 0; i < a.GetLength(0); i++)
                 {
