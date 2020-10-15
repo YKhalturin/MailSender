@@ -52,7 +52,7 @@ namespace TaskTest
                             Console.WriteLine($"r[{i},{j}] = {r[i, j]}. TaskId:{Task.CurrentId}");
                         }
                     });
-                    Task.WaitAll(task1);
+                    await Task.WhenAll(task1).ConfigureAwait(false);
                 }
             });
             
