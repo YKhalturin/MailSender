@@ -56,7 +56,7 @@ namespace TaskTest
                 }
             });
             
-            Task.WaitAll(task);
+            await task.ConfigureAwait(false);
             Console.WriteLine($"Завершение всех потоков");
             return r;
         }
