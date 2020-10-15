@@ -36,7 +36,7 @@ namespace TaskTest
             {
                 for (int i = 0; i < a.GetLength(0); i++)
                 {
-                    Task task1 = Task.Run(() =>
+                    Task task1 = Task.Run(async () =>
                     {
                         for (int j = 0; j < b.GetLength(1); j++)
                         {
