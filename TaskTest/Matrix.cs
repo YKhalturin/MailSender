@@ -48,7 +48,7 @@ namespace TaskTest
                                     Console.WriteLine($"r[{i},{j}] += {a[i,k]} * {b[k,j]}. TaskId:{Task.CurrentId}");
                                 }
                             });
-                            Task.WaitAll(task2);
+                            await Task.WhenAll(task2).ConfigureAwait(false);
                             Console.WriteLine($"r[{i},{j}] = {r[i, j]}. TaskId:{Task.CurrentId}");
                         }
                     });
