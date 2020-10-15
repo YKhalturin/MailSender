@@ -61,7 +61,7 @@ namespace TaskTest
             return r;
         }
 
-        public static async Task Print(int[,] a)
+        public static void Print(int[,] a)
         {
             for (int i = 0; i < a.GetLength(0); i++)
             {
